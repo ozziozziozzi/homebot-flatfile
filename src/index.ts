@@ -23,7 +23,7 @@ import { SmartDateField } from '../examples/fields/SmartDateField'
  * Define your Sheet configuration and Fields here, or import them:
  * import { YourSheet } from './path-to-your-sheet/your-sheet.ts'
  */
-const MySheet = new Sheet('encompass', {
+const MySheet = new Sheet('universal', {
   'Borrower First/Middle Name': TextField({
     label: 'First Name',
     required: true,
