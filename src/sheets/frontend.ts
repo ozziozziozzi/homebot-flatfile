@@ -40,6 +40,31 @@ const MySheet = new Sheet('frontend', {
       }
     }),
 
+    'Borrower Last Name/Suffix': TextField({
+      label: 'Last Name',
+      validate: (name: string) => {
+        const regex = /^[\D\s]+$/g
+        if (!regex.test(name)) {
+          return [
+            new Message(
+              'Names cannot contain numbers',
+              'error',
+              'validate'
+            )
+          ]
+        }
+      },
+      compute: (name: string) => {
+        const names = name.split(' ')
+  
+        for (let i = 0; i < names.length; i++) {
+          names[i] = names[i][0].toUpperCase() + names[i].substring(1).toLowerCase();
+        }
+  
+        return names.join(' ')
+      }
+    }),
+
     'Borr Cell Phone': TextField({
         label: 'Phone',
         description: 'XXX-XXX-XXXX',
