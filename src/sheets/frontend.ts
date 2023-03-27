@@ -9,7 +9,7 @@ import {
   import * as emailValidator from 'email-validator'
   import { SmartDateField } from '../../examples/fields/SmartDateField'
 
-const MySheet = new Sheet('frontend', {
+export const Frontend = new Sheet('frontend', {
 
 'Borrower First/Middle Name': TextField({
 
