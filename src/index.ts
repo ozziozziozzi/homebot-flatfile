@@ -3,6 +3,8 @@
  * Test this scaffold using the sample file in examples/sample-uploads/my-sheet-sample.csv.
  *
  * See examples/workbooks/FullExample.ts for a full, working example of a Workbook.
+ * 
+ * npx run deploy
  */
 
 import {
