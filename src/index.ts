@@ -27,7 +27,7 @@ const FrontendPortal = new Portal({
 })
 
 const ArchivePortal = new Portal({
-  name: 'Archive',
+  name: 'archive',
   sheet: 'Archive'
 })
 
