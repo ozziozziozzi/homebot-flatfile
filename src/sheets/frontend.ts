@@ -10,9 +10,7 @@ import {
   import { SmartDateField } from '../../examples/fields/SmartDateField'
 
 export const Frontend = new Sheet('frontend', {
-
-'Borrower First/Middle Name': TextField({
-
+  'Borrower First/Middle Name': TextField({
     label: 'Borrower First/Middle Name',
     required: true,
     validate: (name:string) => {
@@ -28,7 +26,6 @@ export const Frontend = new Sheet('frontend', {
             ]
         }
     },
-
     compute: (name: string) => {
         const names = name.split(' ')
   
