@@ -15,6 +15,7 @@ import { Buyers } from '../src/sheets/buyers'
 import { Frontend } from '../src/sheets/frontend'
 import { Universal } from '../src/sheets/universal'
 import { Archive } from '../src/sheets/archive'
+import { Testing } from '../src/sheets/testing'
 
 /**
  * Portals
@@ -41,15 +42,21 @@ const CustomerFacingPortal = new Portal({
   sheet: 'Universal'
 })
 
+const TestingPortal = new Portal({
+  name: 'testing',
+  sheet: 'Testing'
+})
+
 // Workbook  - Update to reference your Workbook with Sheet(s) and Portal(s)
 export default new Workbook({
   name: 'MyWorkbook',
   namespace: 'my-workbook',
-  portals: [FrontendPortal, BuyersPortal, ArchivePortal, CustomerFacingPortal],
+  portals: [FrontendPortal, BuyersPortal, ArchivePortal, CustomerFacingPortal, TestingPortal],
   sheets: {
     Buyers,
     Frontend,
     Universal,
-    Archive
+    Archive,
+    Testing
   },
 })
