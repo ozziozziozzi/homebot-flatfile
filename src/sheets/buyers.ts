@@ -3,7 +3,8 @@ import {
     Sheet,
     TextField,
     OptionField,
-    Message
+    Message,
+    BooleanField
   } from '@flatfile/configure'
   import * as hooks from '../datahooks/hooks'
   import * as emailValidator from 'email-validator'
@@ -244,8 +245,29 @@ export const Buyers = new Sheet('buyers', {
                 description: 'Smart dates',
                 formatString: 'M/d/yyyy'
               }),
+              
+              
+              
+              'Loan Adjustable': BooleanField({
+                description: "Is the loan adjustable?",
+              }),
+
+              'Pre Approved': BooleanField({
+                description: "Is the loan pre approved?",
+              }),
+
+              'Loan ARM Years': TextField({
+                label: 'Loan ARM Years',
+                compute: (value: string) => {
+                  return value.replace('$', '').trim()
+                }
+              }),
+
+
 
             },
+
+          
 
             {
                 allowCustomFields: true,
@@ -256,6 +278,7 @@ export const Buyers = new Sheet('buyers', {
                   hooks.coborrowerEmailCheck(record)
                   return record
                 }
-              })
-
-         // only missing Loan Adjustable, Loan ARM Years Initial, and Preapproved headers     
+              }
+              
+           
+              )
