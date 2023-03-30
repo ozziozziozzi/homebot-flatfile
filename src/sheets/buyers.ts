@@ -246,8 +246,6 @@ export const Buyers = new Sheet('buyers', {
                 formatString: 'M/d/yyyy'
               }),
               
-              
-              
               'Loan Adjustable': BooleanField({
                 description: "Is the loan adjustable?",
               }),
@@ -266,8 +264,6 @@ export const Buyers = new Sheet('buyers', {
 
 
             },
-
-          
 
             {
                 allowCustomFields: true,
