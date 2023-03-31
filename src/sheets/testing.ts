@@ -25,14 +25,26 @@ import {
         }
       },
       compute: (addy: string) => {
+        if (addy.toLowerCase().includes(" unit ")) {
+          addy = addy.replace(/\sunit\s/gi, " #")
+        }
+
         let parsed_addy = addressit(addy)
         let final_addy = []
 
         final_addy.push(parsed_addy.number, parsed_addy.street)
 
-        if (parsed_addy.unit != '')
+        if (parsed_addy.unit != undefined) {
+          const unit_number = "#" + parsed_addy.unit
+          final_addy.push(unit_number)
+        }
 
-        return final_addy
+        // Want to return the original string if bad addy
+        if (parsed_addy.street == undefined || parsed_addy.number == undefined) {
+          return parsed_addy.text
+        } else {
+          return final_addy.join(' ')
+        }
       }
     })
   }, {})
