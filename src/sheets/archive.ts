@@ -4,7 +4,7 @@ import {
     TextField,
     OptionField,
     Message
-  } from '@flatfile/configure'
+} from '@flatfile/configure'
 import {
   NameField,
   PhoneField,
