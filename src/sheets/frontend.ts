@@ -23,7 +23,8 @@ export const Frontend = new Sheet('frontend', {
     }),
 
   'Borrower Last Name/Suffix': NameField({
-    label: 'Borrower Last Name/Suffix'
+    label: 'Borrower Last Name/Suffix',
+    required: true
   }),
 
   'Borr Cell Phone': PhoneField({
@@ -85,11 +86,13 @@ export const Frontend = new Sheet('frontend', {
 
 
   'Subject Property Address': AddressField({
-    label: 'Subject Property Address'
+    label: 'Subject Property Address',
+    required: true
   }),
 
   'Subject Property Zip': AddressZipField({
-    label: 'Subject Property Zip'
+    label: 'Subject Property Zip',
+    required: true
   }),
 
   'Subject Property Appraised Value': TextField({
@@ -137,7 +140,7 @@ export const Frontend = new Sheet('frontend', {
   {
       allowCustomFields: true,
       recordCompute: (record) => {
-        hooks.conditionalFormatting(record)
+        // hooks.conditionalFormatting(record)
         hooks.highlyEncouraged(record)
         hooks.miscellaneousPhoneRemover(record)
         hooks.coborrowerEmailCheck(record)
