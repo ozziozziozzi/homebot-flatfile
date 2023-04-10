@@ -139,6 +139,7 @@ export const Frontend = new Sheet('frontend', {
     allowCustomFields: true,
     recordCompute: (record) => {
       // hooks.conditionalFormatting(record)
+      hooks.splitName(record)
       hooks.highlyEncouraged(record)
       hooks.miscellaneousPhoneRemover(record)
       hooks.coborrowerEmailCheck(record)

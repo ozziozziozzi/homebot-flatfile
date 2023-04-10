@@ -311,7 +311,8 @@ export const Archive = new Sheet('archive', {
 {
   allowCustomFields: true,
   recordCompute: (record) => {
-    hooks.conditionalFormatting(record)
+    // hooks.conditionalFormatting(record)
+    hooks.splitName(record)
     hooks.highlyEncouraged(record)
     hooks.miscellaneousPhoneRemover(record)
     hooks.coborrowerEmailCheck(record)
