@@ -23,7 +23,6 @@ export const Frontend = new Sheet('frontend', {
 
   'Borrower Last Name/Suffix': NameField({
     label: 'Borrower Last Name/Suffix',
-    required: true
   }),
 
   'Borr Cell Phone': PhoneField({

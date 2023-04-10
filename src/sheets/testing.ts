@@ -56,8 +56,7 @@ import { SmartDateField } from '../../examples/fields/SmartDateField'
       }),
   
     'Borrower Last Name/Suffix': NameField({
-      label: 'Borrower Last Name/Suffix',
-      required: true
+      label: 'Borrower Last Name/Suffix'
     })
   }, 
   

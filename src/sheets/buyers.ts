@@ -20,8 +20,7 @@ export const Buyers = new Sheet('buyers', {
   }),
 
   'Last Name': NameField({
-    label: 'Last Name',
-    required: true
+    label: 'Last Name'
   }),
 
   'Phone': PhoneField({
