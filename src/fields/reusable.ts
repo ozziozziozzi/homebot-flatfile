@@ -6,9 +6,7 @@ import {
     Message,
     makeField
   } from '@flatfile/configure'
-import * as hooks from '../datahooks/hooks'
 import * as emailValidator from 'email-validator'
-import { SmartDateField } from '../../examples/fields/SmartDateField'
 
 export const NameField = makeField(TextField(), {
   validate: (name:string) => {
