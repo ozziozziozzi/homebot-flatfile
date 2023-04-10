@@ -13,7 +13,6 @@ import {
     AddressZipField
   } from '../fields/reusable'
   import * as hooks from '../datahooks/hooks'
-  import * as emailValidator from 'email-validator'
   import { SmartDateField } from '../../examples/fields/SmartDateField'
 
 export const Frontend = new Sheet('frontend', {
@@ -24,7 +23,6 @@ export const Frontend = new Sheet('frontend', {
 
   'Borrower Last Name/Suffix': NameField({
     label: 'Borrower Last Name/Suffix',
-    required: true
   }),
 
   'Borr Cell Phone': PhoneField({
@@ -138,12 +136,12 @@ export const Frontend = new Sheet('frontend', {
   },
 
   {
-      allowCustomFields: true,
-      recordCompute: (record) => {
-        // hooks.conditionalFormatting(record)
-        hooks.highlyEncouraged(record)
-        hooks.miscellaneousPhoneRemover(record)
-        hooks.coborrowerEmailCheck(record)
-        return record
+    allowCustomFields: true,
+    recordCompute: (record) => {
+      // hooks.conditionalFormatting(record)
+      hooks.highlyEncouraged(record)
+      hooks.miscellaneousPhoneRemover(record)
+      hooks.coborrowerEmailCheck(record)
+      return record
     }
   })
