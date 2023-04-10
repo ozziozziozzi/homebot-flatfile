@@ -5,10 +5,12 @@ import {
     OptionField,
     Message
   } from '@flatfile/configure'
-  import * as hooks from '../datahooks/hooks'
-  import * as emailValidator from 'email-validator'
-  var addressit = require("addressit")
-  import { SmartDateField } from '../../examples/fields/SmartDateField'
+import {
+  NameField
+} from '../fields/reusable'
+import * as hooks from '../datahooks/hooks'
+var addressit = require("addressit")
+import { SmartDateField } from '../../examples/fields/SmartDateField'
 
   export const Testing = new Sheet('testing', {
     'Subject Property Address': TextField({
@@ -46,5 +48,22 @@ import {
           return final_addy.join(' ')
         }
       }
+    }),
+
+    'Borrower First/Middle Name': NameField({
+      label: 'Borrower First/Middle Name',
+      required: true
+      }),
+  
+    'Borrower Last Name/Suffix': NameField({
+      label: 'Borrower Last Name/Suffix',
+      required: true
     })
-  }, {})
+  }, 
+  
+  {
+    allowCustomFields: true,
+    recordCompute: (record) => {
+      hooks.splitName(record)
+    }
+  })

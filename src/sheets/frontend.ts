@@ -137,12 +137,12 @@ export const Frontend = new Sheet('frontend', {
   },
 
   {
-      allowCustomFields: true,
-      recordCompute: (record) => {
-        // hooks.conditionalFormatting(record)
-        hooks.highlyEncouraged(record)
-        hooks.miscellaneousPhoneRemover(record)
-        hooks.coborrowerEmailCheck(record)
-        return record
+    allowCustomFields: true,
+    recordCompute: (record) => {
+      // hooks.conditionalFormatting(record)
+      hooks.highlyEncouraged(record)
+      hooks.miscellaneousPhoneRemover(record)
+      hooks.coborrowerEmailCheck(record)
+      return record
     }
   })
