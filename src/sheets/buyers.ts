@@ -1,5 +1,4 @@
 import {
-  NumberField,
   Sheet,
   TextField,
   OptionField,
@@ -10,11 +9,8 @@ import {
   NameField,
   PhoneField,
   EmailField,
-  AddressField,
-  AddressZipField
 } from '../fields/reusable'
 import * as hooks from '../datahooks/hooks'
-import * as emailValidator from 'email-validator'
 import { SmartDateField } from '../../examples/fields/SmartDateField'
 
 export const Buyers = new Sheet('buyers', {

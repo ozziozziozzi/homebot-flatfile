@@ -1,3 +1,5 @@
+const human = require('humanparser')
+
 const isNil = (val) => val === null || val === undefined || val === ""
 
 const isNotNil = (val) => !isNil(val)
@@ -7,6 +9,20 @@ function checkMinimum(first, last, email) {
     return true
   } else {
     return false
+  }
+}
+
+export function splitName(record) {
+  if (isNil(record.get('Borrower Last Name/Suffix')) && isNotNil(record.get('Borrower First/Middle Name'))) {
+    const orgFirstName = record.get('Borrow First/Middle Name')
+    const attrs = human.parseName(orgFirstName)
+
+    const firstName = attrs.firstName
+    const lastName = attrs.lastName
+
+    record.set('Borrower First/Middle Name', firstName)
+    record.set('Borrower Last Name/Suffix', lastName)
+    record.addComment('Borrower Last Name/Suffix', `Automatically split ${orgFirstName} to fill.`)
   }
 }
 
