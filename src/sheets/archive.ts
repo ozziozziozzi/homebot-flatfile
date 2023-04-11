@@ -195,7 +195,8 @@ export const Archive = new Sheet('archive', {
   }),
 
   'Loan Purpose': TextField({
-    label: 'Loan Purpose'
+    label: 'Loan Purpose',
+    default: 'Purchase'
   }),
 
   'Closing Date': SmartDateField({
