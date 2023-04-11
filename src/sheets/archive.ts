@@ -21,7 +21,7 @@ export const Archive = new Sheet('archive', {
     required: true
   }),
 
-  'Borrower Last Name/Suffix': TextField({
+  'Borrower Last Name/Suffix': NameField({
     label: 'Borrower Last Name/Suffix'
   }),
 
