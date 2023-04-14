@@ -24,11 +24,17 @@ export const NameField = makeField(TextField(), {
   compute: (name: string) => {
     const names = name.split(' ')
 
-    for (let i = 0; i < names.length; i++) {
-      names[i] = names[i][0].toUpperCase() + names[i].substring(1).toLowerCase();
+    const filterNames = names.filter(function (name) {
+      return name != ''
+    })
+
+    for (let i = 0; i < filterNames.length; i++) {
+      if (filterNames[i] != '') {
+        filterNames[i] = filterNames[i][0].toUpperCase() + filterNames[i].substring(1).toLowerCase();
+      }
     }
 
-    return names.join(' ')
+    return filterNames.join(' ')
   }
 })
 

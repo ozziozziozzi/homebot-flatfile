@@ -134,6 +134,7 @@ export const Archive = new Sheet('archive', {
 
   'Total Loan Amount': TextField({
     label: 'Total Loan Amount',
+    required: true,
     validate: (amount: string) => {
       const numRegex = /(^\d+$)|(^\d*,?\d*,?\d*.?(\d{1,2})?$)/g
       if (!numRegex.test(amount)) {
@@ -153,6 +154,7 @@ export const Archive = new Sheet('archive', {
 
   'Interest Rate': TextField({
     label: 'Interest Rate',
+    required: true,
     compute: (value: string) => {
       const rate = value.replace('%', '').trim()
       if (rate.match(/^0+.?0{0,2}$/g)) {
@@ -203,7 +205,8 @@ export const Archive = new Sheet('archive', {
     label: 'Closing Date',
     locale: 'en',
     description: 'Smart dates',
-    formatString: 'M/d/yyyy'
+    formatString: 'M/d/yyyy',
+    required: true
   }),
 
   'NMLS Loan Originator ID': TextField({
@@ -314,7 +317,7 @@ export const Archive = new Sheet('archive', {
   recordCompute: (record) => {
     // hooks.conditionalFormatting(record)
     hooks.splitName(record)
-    hooks.highlyEncouraged(record)
+    // hooks.highlyEncouraged(record)
     hooks.miscellaneousPhoneRemover(record)
     hooks.coborrowerEmailCheck(record)
     return record
