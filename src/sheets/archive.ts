@@ -36,14 +36,14 @@ export const Archive = new Sheet('archive', {
   }),
 
   'Borr DOB': SmartDateField({
-    label: 'Date of Birth',
+    label: 'Borr DOB',
     description: 'MM/DD/YYYY (This field is used to display reverse mortgage for eligible homeowners).',
     locale: 'en',
     formatString: 'M/d/yyyy'
   }),
 
   'Borr Language Preference': OptionField({
-    label: 'Language Preference',
+    label: 'Borr Language Preference',
     description: 'English or Spanish',
     options: {
       english: 'en',
@@ -60,7 +60,7 @@ export const Archive = new Sheet('archive', {
   }),
 
   'Co-Borr Cell Phone': PhoneField({
-    label: 'Co-Borr Phone',
+    label: 'Co-Borr Cell Phone',
     description: 'XXX-XXX-XXXX'
   }),
 
@@ -69,7 +69,7 @@ export const Archive = new Sheet('archive', {
   }),
 
   'Co-Borr DOB': SmartDateField({
-    label: 'Co-Borr Date of Birth',
+    label: 'Co-Borr DOB',
     description: 'MM/DD/YYYY (This field is used to display reverse mortgage for eligible homeowners).',
     locale: 'en',
     formatString: 'M/d/yyyy'
@@ -160,7 +160,7 @@ export const Archive = new Sheet('archive', {
       if (rate.match(/^0+.?0{0,2}$/g)) {
         return '0.01'
       } else {
-        return value
+        return rate
       }
     }
   }),
@@ -193,7 +193,8 @@ export const Archive = new Sheet('archive', {
       } else {
         return term
       }
-    }
+    },
+    default: '360'
   }),
 
   'Loan Purpose': TextField({
@@ -210,14 +211,14 @@ export const Archive = new Sheet('archive', {
   }),
 
   'NMLS Loan Originator ID': TextField({
-    label: 'Loan Officer NMLS ID',
+    label: 'NMLS Loan Originator ID',
     compute: (nmls: string) => {
       return nmls.replace(/\D/g, '').trim()
     }
   }),
 
   'Lender NMLS ID': NumberField({
-    label: 'Company NMLS ID'
+    label: 'Lender NMLS ID'
   }),
 
   'NMLS Loan Type': OptionField({
@@ -225,13 +226,13 @@ export const Archive = new Sheet('archive', {
     matchStrategy: 'exact',
     options: {
       'ResidentialFirst': 'ResidentialFirst',
-            'ClosedEndSecond': 'Second',
-            'HELOC': 'HELOC',
-            'ReverseMortgage': 'Reverse Mortgage',
-            'Construction': 'Construction',
-            'MultiFamily': 'Multifamily',
-            'Commercial': 'Commercial',
-            'Other': 'Other'
+      'ClosedEndSecond': 'Second',
+      'HELOC': 'HELOC',
+      'ReverseMortgage': 'Reverse Mortgage',
+      'Construction': 'Construction',
+      'MultiFamily': 'Multifamily',
+      'Commercial': 'Commercial',
+      'Other': 'Other'
     }
   }),
 
@@ -304,7 +305,7 @@ export const Archive = new Sheet('archive', {
   }),
 
   'Occupancy (PSI)': OptionField({
-    label: 'Occupancy (Primary, Secondary, Investment)',
+    label: 'Occupancy (PSI)',
     options: {
       primary: 'Primary',
       secondary: 'Secondary',
