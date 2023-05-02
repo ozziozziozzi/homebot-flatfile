@@ -35,14 +35,14 @@ export const Frontend = new Sheet('frontend', {
   }),
 
   'Borr DOB': SmartDateField({
-    label: 'Date of Birth',
+    label: 'Borr DOB',
     description: 'MM/DD/YYYY (This field is used to display reverse mortgage for eligible homeowners).',
     locale: 'en',
     formatString: 'M/d/yyyy'
   }),
 
   'Borr Language Preference': OptionField({
-    label: 'Language Preference',
+    label: 'Borr Language Preference',
     description: 'English or Spanish',
     options: {
       english: 'en',
@@ -67,7 +67,7 @@ export const Frontend = new Sheet('frontend', {
   }),
 
   'Co-Borr DOB': SmartDateField({
-    label: 'Co-Borr Date of Birth',
+    label: 'Co-Borr DOB',
     description: 'MM/DD/YYYY (This field is used to display reverse mortgage for eligible homeowners).',
     locale: 'en',
     formatString: 'M/d/yyyy'
