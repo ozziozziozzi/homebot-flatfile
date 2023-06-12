@@ -226,14 +226,15 @@ export const Archive = new Sheet('archive', {
     matchStrategy: 'exact',
     options: {
       'ResidentialFirst': 'ResidentialFirst',
-      'ClosedEndSecond': 'Second',
+      'Second': 'Second',
       'HELOC': 'HELOC',
       'ReverseMortgage': 'Reverse Mortgage',
       'Construction': 'Construction',
       'MultiFamily': 'Multifamily',
       'Commercial': 'Commercial',
       'Other': 'Other'
-    }
+    },
+    default: 'ResidentialFirst'
   }),
 
   'Total Monthly Payment': TextField({
