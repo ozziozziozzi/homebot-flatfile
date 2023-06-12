@@ -28,6 +28,14 @@ export function splitName(record) {
       record.addError('Borrower Last Name/Suffix', 'Clients must have a last name.')
     }
   }
+
+  if (isNotNil(record.get('Borrower First/Middle Name'))) {
+    const originalFirstName = record.get('Borrower First/Middle Name')
+
+    if (originalFirstName.includes(' ') && !originalFirstName.includes('&')) {
+      record.set('Borrower First/Middle Name', originalFirstName.split(' ')[0])
+    }
+  }
 }
 
 export function conditionalFormatting(record) {
