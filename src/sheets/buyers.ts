@@ -180,10 +180,11 @@ export const Buyers = new Sheet('buyers', {
 {
   allowCustomFields: true,
   recordCompute: (record) => {
-    hooks.conditionalFormatting(record)
-    hooks.highlyEncouraged(record)
-    hooks.miscellaneousPhoneRemover(record)
-    hooks.coborrowerEmailCheck(record)
+    // hooks.conditionalFormatting(record)
+    hooks.splitName(record)
+    // hooks.highlyEncouraged(record)
+    // hooks.miscellaneousPhoneRemover(record)
+    // hooks.coborrowerEmailCheck(record)
     return record
   }
 })
