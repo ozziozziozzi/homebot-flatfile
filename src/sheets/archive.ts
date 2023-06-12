@@ -85,11 +85,13 @@ export const Archive = new Sheet('archive', {
   }),
 
   'Subject Property Address': AddressField({
-    label: 'Subject Property Address'
+    label: 'Subject Property Address',
+    required: true
   }),
 
   'Subject Property Zip': AddressZipField({
-    label: 'Subject Property Zip'
+    label: 'Subject Property Zip',
+    required: true
   }),
 
   'Subject Property Appraised Value': TextField({
