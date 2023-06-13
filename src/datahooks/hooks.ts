@@ -32,8 +32,34 @@ export function splitName(record) {
   if (isNotNil(record.get('Borrower First/Middle Name'))) {
     const originalFirstName = record.get('Borrower First/Middle Name')
 
-    if (originalFirstName.includes(' ') && !originalFirstName.includes('&')) {
+    if (originalFirstName.includes(' ') && !originalFirstName.includes('&') && !originalFirstName.includes(' and ') && !originalFirstName.includes(' And ')) {
       record.set('Borrower First/Middle Name', originalFirstName.split(' ')[0])
+    }
+  }
+}
+
+export function splitNameBuyers(record) {
+  if (isNil(record.get('Last Name')) && isNotNil(record.get('First Name'))) {
+    const originalFirstName = record.get('First Name')
+    const attrs = human.parseName(originalFirstName)
+
+    const firstName = attrs.firstName
+    const lastName = attrs.lastName
+
+    if (lastName != '' && firstName != '') {
+      record.set('First Name', firstName)
+      record.set('Last Name', lastName)
+      record.addComment('Last Name', `Automatically split ${originalFirstName} to fill.`)
+    } else {
+      record.addError('Last Name', 'Clients must have a last name.')
+    }
+  }
+
+  if (isNotNil(record.get('First Name'))) {
+    const originalFirstName = record.get('First Name')
+
+    if (originalFirstName.includes(' ') && !originalFirstName.includes('&') && !originalFirstName.includes(' and ') && !originalFirstName.includes(' And ')) {
+      record.set('First Name', originalFirstName.split(' ')[0])
     }
   }
 }

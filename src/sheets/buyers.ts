@@ -181,7 +181,7 @@ export const Buyers = new Sheet('buyers', {
   allowCustomFields: true,
   recordCompute: (record) => {
     // hooks.conditionalFormatting(record)
-    hooks.splitName(record)
+    hooks.splitNameBuyers(record)
     // hooks.highlyEncouraged(record)
     // hooks.miscellaneousPhoneRemover(record)
     // hooks.coborrowerEmailCheck(record)
