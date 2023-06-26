@@ -36,6 +36,28 @@ export function splitName(record) {
       record.set('Borrower First/Middle Name', originalFirstName.split(' ')[0])
     }
   }
+
+  if (isNil(record.get('Co-Borrower Last Name/Suffix')) && isNotNil(record.get('Co-Borrower First/Middle Name'))) {
+    const originalFirstName = record.get('Co-Borrower First/Middle Name')
+    const attrs = human.parseName(originalFirstName)
+
+    const firstName = attrs.firstName
+    const lastName = attrs.lastName
+
+    if (lastName != '' && firstName != '') {
+      record.set('Co-Borrower First/Middle Name', firstName)
+      record.set('Co-Borrower Last Name/Suffix', lastName)
+      record.addComment('Co-Borrower Last Name/Suffix', `Automatically split ${originalFirstName} to fill.`)
+    }
+  }
+
+  if (isNotNil(record.get('Co-Borrower First/Middle Name'))) {
+    const originalFirstName = record.get('Co-Borrower First/Middle Name')
+
+    if (originalFirstName.includes(' ') && !originalFirstName.includes('&') && !originalFirstName.includes(' and ') && !originalFirstName.includes(' And ')) {
+      record.set('Co-Borrower First/Middle Name', originalFirstName.split(' ')[0])
+    }
+  }
 }
 
 export function splitNameBuyers(record) {
