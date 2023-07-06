@@ -55,7 +55,7 @@ export const PhoneField = makeField(TextField(), {
   compute: (phone: string) => {
     const regex = /^[\)\(\*\s-(N/?A)]+$/g
     if (regex.test(phone)) {
-      return ''
+      return null
     } else {
       return phone
     }
