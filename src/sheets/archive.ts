@@ -110,7 +110,7 @@ export const Archive = new Sheet('archive', {
     },
     compute: (value: string) => {
       value = value.replace('$', '').trim()
-      value = value.replace(',', '').trim()
+      value = value.replace(/,/g, '').trim()
 
       let num_value = Number(value)
       num_value = Math.round(num_value * 100) / 100
@@ -130,7 +130,7 @@ export const Archive = new Sheet('archive', {
     label: 'Subject Property Purchase Price',
     compute: (value: string) => {
       value = value.replace('$', '').trim()
-      value = value.replace(',', '').trim()
+      value = value.replace(/,/g, '').trim()
 
       let num_value = Number(value)
       num_value = Math.round(num_value * 100) / 100
@@ -163,7 +163,7 @@ export const Archive = new Sheet('archive', {
     },
     compute: (value: string) => {
       value = value.replace('$', '').trim()
-      value = value.replace(',', '').trim()
+      value = value.replace(/,/g, '').trim()
 
       let num_value = Number(value)
       num_value = Math.round(num_value * 100) / 100
